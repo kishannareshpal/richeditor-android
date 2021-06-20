@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
     findViewById(R.id.action_bold).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        mEditor.setBold();
+        mEditor.toggleBold();
       }
     });
 
     findViewById(R.id.action_italic).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        mEditor.setItalic();
+        mEditor.toggleItalic();
       }
     });
 
@@ -85,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
     findViewById(R.id.action_strikethrough).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        mEditor.setStrikeThrough();
+        mEditor.setStrikeThrough(true);
       }
     });
 
     findViewById(R.id.action_underline).setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        mEditor.setUnderline();
+        mEditor.setUnderline(true);
       }
     });
 

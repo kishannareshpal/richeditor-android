@@ -239,6 +239,7 @@ public class RichEditor extends WebView {
     }
   }
 
+  @SuppressLint("RtlHardcoded")
   private void applyAttributes(Context context, AttributeSet attrs) {
     final int[] attrsArray = new int[] {
         android.R.attr.gravity
@@ -248,9 +249,11 @@ public class RichEditor extends WebView {
     int gravity = ta.getInt(0, NO_ID);
     switch (gravity) {
       case Gravity.LEFT:
+      case Gravity.START:
         exec("javascript:RE.setTextAlign(\"left\")");
         break;
       case Gravity.RIGHT:
+      case Gravity.END:
         exec("javascript:RE.setTextAlign(\"right\")");
         break;
       case Gravity.TOP:
@@ -379,12 +382,20 @@ public class RichEditor extends WebView {
     exec("javascript:RE.redo();");
   }
 
-  public void setBold() {
-    exec("javascript:RE.setBold();");
+  public void toggleBold() {
+    exec("javascript:RE.toggleBold();");
   }
 
-  public void setItalic() {
-    exec("javascript:RE.setItalic();");
+  public void setBold(boolean enabled) {
+    exec("javascript:RE.setBold(" + enabled + ");");
+  }
+
+  public void toggleItalic() {
+    exec("javascript:RE.toggleItalic();");
+  }
+
+  public void setItalic(boolean enabled) {
+    exec("javascript:RE.setItalic(" + enabled + ");");
   }
 
   public void setSubscript() {
@@ -395,12 +406,20 @@ public class RichEditor extends WebView {
     exec("javascript:RE.setSuperscript();");
   }
 
-  public void setStrikeThrough() {
-    exec("javascript:RE.setStrikeThrough();");
+  public void toggleStrikeThrough() {
+    exec("javascript:RE.toggleStrikeThrough();");
   }
 
-  public void setUnderline() {
-    exec("javascript:RE.setUnderline();");
+  public void setStrikeThrough(boolean enabled) {
+    exec("javascript:RE.setStrikeThrough(" + enabled + ");");
+  }
+
+  public void toggleUnderline() {
+    exec("javascript:RE.toggleUnderline();");
+  }
+
+  public void setUnderline(boolean enabled) {
+    exec("javascript:RE.setUnderline(" + enabled + ");");
   }
 
   public void setTextColor(int color) {
