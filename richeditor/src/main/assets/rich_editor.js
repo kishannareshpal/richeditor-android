@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2017 Wasabeef
+ * Copyright (C) 2017 Wasabeef and Kishan Jadav
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,10 @@ RE.currentSelection = {
     "endOffset": 0
 };
 
-RE.editor = document.getElementById('editor');
+document.addEventListener("DOMContentLoaded", function() {
+    RE.editor = document.getElementById("editor");
+})
+
 
 document.addEventListener("selectionchange", function() {
     RE.backuprange();
@@ -440,7 +443,7 @@ RE.removeFormat = function() {
 RE.editor.addEventListener("input", RE.textChange);
 RE.editor.addEventListener("keyup", function(e) {
     var KEY_LEFT = 37, KEY_RIGHT = 39;
-    if (e.which == KEY_LEFT || e.which == KEY_RIGHT) {
+    if ((e.key === "ArrowLeft" || e.key === "ArrowRight") || (e.which === KEY_LEFT || e.which === KEY_RIGHT)) {
         RE.enabledEditingItems(e);
     }
 });

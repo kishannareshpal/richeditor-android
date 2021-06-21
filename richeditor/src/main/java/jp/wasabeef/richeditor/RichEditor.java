@@ -512,12 +512,9 @@ public class RichEditor extends WebView {
   }
 
   protected void exec(final String trigger) {
-    this.post(new Runnable() {
-      @Override
-      public void run() {
+    if (isReady) {
         load(trigger);
-      }
-    });
+    }
 
 //    if (isReady) {
 //
@@ -530,11 +527,17 @@ public class RichEditor extends WebView {
 //    }
   }
 
-  private void load(String trigger) {
+  private void load(final String trigger) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
       evaluateJavascript(trigger, null);
+
     } else {
-      loadUrl(trigger);
+      post(new Runnable() {
+        @Override
+        public void run() {
+          loadUrl(trigger);
+        }
+      });
     }
   }
 
