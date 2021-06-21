@@ -512,15 +512,22 @@ public class RichEditor extends WebView {
   }
 
   protected void exec(final String trigger) {
-    if (isReady) {
-      load(trigger);
-    } else {
-      postDelayed(new Runnable() {
-        @Override public void run() {
-          exec(trigger);
-        }
-      }, 100);
-    }
+    this.post(new Runnable() {
+      @Override
+      public void run() {
+        load(trigger);
+      }
+    });
+
+//    if (isReady) {
+//
+//    } else {
+//      postDelayed(new Runnable() {
+//        @Override public void run() {
+//          exec(trigger);
+//        }
+//      }, 100);
+//    }
   }
 
   private void load(String trigger) {

@@ -10,6 +10,6 @@ android {
     minSdkVersion 17
     targetSdkVersion 30
     versionCode 1
-    versionName "1.4"
+    versionName "1.4.1"
   }
 }
