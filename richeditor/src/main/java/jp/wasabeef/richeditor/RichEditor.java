@@ -514,22 +514,24 @@ public class RichEditor extends WebView {
   protected void exec(final String trigger) {
     if (isReady) {
         load(trigger);
+    } else {
+        postDelayed(new Runnable() {
+          @Override
+          public void run() {
+            exec(trigger);
+          }
+        }, 150);
     }
-
-//    if (isReady) {
-//
-//    } else {
-//      postDelayed(new Runnable() {
-//        @Override public void run() {
-//          exec(trigger);
-//        }
-//      }, 100);
-//    }
   }
 
   private void load(final String trigger) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-      evaluateJavascript(trigger, null);
+      post(new Runnable() {
+        @Override
+        public void run() {
+          evaluateJavascript(trigger, null);
+        }
+      });
 
     } else {
       post(new Runnable() {

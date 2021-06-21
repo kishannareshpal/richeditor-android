@@ -1,287 +1,352 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  >
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+>
 
-  <HorizontalScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:color/black"
-    >
+    <HorizontalScrollView
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FCEADE">
 
-    <LinearLayout
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      >
+      <com.google.android.material.button.MaterialButtonToggleGroup
+              android:id="@+id/mbtg_action_group"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
 
-      <ImageButton
-        android:id="@+id/action_undo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/undo"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_undo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/undo"
         />
 
-      <ImageButton
-        android:id="@+id/action_redo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/redo"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_redo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/redo"
         />
 
-      <ImageButton
-        android:id="@+id/action_bold"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/bold"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_bold"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/bold"
         />
 
-      <ImageButton
-        android:id="@+id/action_italic"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/italic"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_italic"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/italic"
         />
 
-      <ImageButton
-        android:id="@+id/action_subscript"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/subscript"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_subscript"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/subscript"
         />
 
-      <ImageButton
-        android:id="@+id/action_superscript"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/superscript"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_superscript"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/superscript"
         />
 
-      <ImageButton
-        android:id="@+id/action_strikethrough"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/strikethrough"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_strikethrough"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/strikethrough"
         />
 
-      <ImageButton
-        android:id="@+id/action_underline"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/underline"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_underline"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/underline"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h1"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h1"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading2"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h2"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h2"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h3"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h3"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h4"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h4"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h5"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h5"
         />
 
-      <ImageButton
-        android:id="@+id/action_heading6"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/h6"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_heading6"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/h6"
         />
 
-      <ImageButton
-        android:id="@+id/action_txt_color"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/txt_color"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_txt_color"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/txt_color"
         />
 
-      <ImageButton
-        android:id="@+id/action_bg_color"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/bg_color"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_bg_color"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/bg_color"
         />
 
 
-      <ImageButton
-        android:id="@+id/action_indent"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/indent"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_indent"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/indent"
         />
 
-      <ImageButton
-        android:id="@+id/action_outdent"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/outdent"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_outdent"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/outdent"
         />
 
-      <ImageButton
-        android:id="@+id/action_align_left"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/justify_left"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_align_left"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/justify_left"
         />
 
-      <ImageButton
-        android:id="@+id/action_align_center"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/justify_center"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_align_center"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/justify_center"
         />
 
-      <ImageButton
-        android:id="@+id/action_align_right"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/justify_right"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_align_right"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/justify_right"
         />
 
-      <ImageButton
-        android:id="@+id/action_insert_bullets"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/bullets"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_insert_bullets"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/bullets"
         />
 
-      <ImageButton
-        android:id="@+id/action_insert_numbers"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/numbers"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_insert_numbers"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/numbers"
         />
 
-      <ImageButton
-        android:id="@+id/action_blockquote"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/blockquote"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_blockquote"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/blockquote"
         />
 
-      <ImageButton
-        android:id="@+id/action_insert_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/insert_image"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_insert_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/insert_image"
         />
 
-      <ImageButton
-        android:id="@+id/action_insert_link"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@drawable/insert_link"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_insert_link"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                app:iconTint="#000000"
+                app:iconSize="18dp"
+                app:icon="@drawable/insert_link"
         />
 
-      <ImageButton
-        android:id="@+id/action_insert_checkbox"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@null"
-        android:contentDescription="@null"
-        android:src="@android:drawable/checkbox_on_background"
+        <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/action_insert_checkbox"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:contentDescription="@null"
+                android:src="@android:drawable/checkbox_on_background"
         />
 
-    </LinearLayout>
+      </com.google.android.material.button.MaterialButtonToggleGroup>
   </HorizontalScrollView>
+
 
   <jp.wasabeef.richeditor.RichEditor
     android:id="@+id/editor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    />
-
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:text="HTML Preview"
-    android:textSize="12sp"
-    />
-
-  <TextView
-    android:id="@+id/preview"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
     />
 
 </LinearLayout>

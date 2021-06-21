@@ -8,128 +8,113 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import androidx.core.content.ContextCompat;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import jp.wasabeef.richeditor.RichEditor;
 
 public class MainActivity extends AppCompatActivity {
 
-  private RichEditor mEditor;
   private TextView mPreview;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    mEditor = (RichEditor) findViewById(R.id.editor);
-    mEditor.setEditorHeight(200);
+
+    final RichEditor mEditor = findViewById(R.id.editor);
+    final MaterialButtonToggleGroup mbtg_button_group = findViewById(R.id.mbtg_action_group);
+
+    // Configure editor
+    mEditor.setEditorHeight(320);
     mEditor.setEditorFontSize(22);
-    mEditor.setEditorFontColor(Color.RED);
-    //mEditor.setEditorBackgroundColor(Color.BLUE);
-    //mEditor.setBackgroundColor(Color.BLUE);
-    //mEditor.setBackgroundResource(R.drawable.bg);
-    mEditor.setPadding(10, 10, 10, 10);
+    mEditor.setEditorFontColor(Color.BLACK);
+    mEditor.setEditorBackgroundColor(ContextCompat.getColor(this, R.color.editor_background));
+    mEditor.setPadding(24, 24, 24, 24);
     //mEditor.setBackground("https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg");
     mEditor.setPlaceholder("Insert text here...");
     //mEditor.setInputEnabled(false);
 
-    mPreview = (TextView) findViewById(R.id.preview);
-    mEditor.setOnTextSelectionChangeListener(new RichEditor.OnTextSelectionChangeListener() {
-      @Override
-      public void onTextSelect(RichEditor.EnabledFormatTypes enabledFormatTypes, String selectedText) {
-        Log.v("ENABLEDD", selectedText);
+
+
+    mEditor.setOnTextSelectionChangeListener((enabledFormatTypes, selectedText) -> {
+
+      for(Map.Entry<String, Boolean> enabledType : enabledFormatTypes.getAllTypes().entrySet()) {
+        String formatName = enabledType.getKey();
+        boolean isEnabled = enabledType.getValue();
+
+
+        int buttonId;
+        if (formatName.equals("isBold")) {
+          buttonId = R.id.action_bold;
+        } else if (formatName.equals("isItalic")) {
+          buttonId = R.id.action_italic;
+        } else if (formatName.equals("isUnderline")) {
+          buttonId = R.id.action_underline;
+        } else if (formatName.equals("isStrikethrough")) {
+          buttonId = R.id.action_strikethrough;
+        } else {
+          buttonId = View.NO_ID;
+        }
+
+        if (isEnabled) {
+          mbtg_button_group.check(buttonId);
+        } else {
+          mbtg_button_group.uncheck(buttonId);
+        }
       }
     });
 
-//    mEditor.setOnTextSelectionChangeListener(new RichEditor.OnTextSelectionChangeListener() {
-//      @Override
-//      public void onTextSelect(RichEditor.EnabledFormatTypes enabledFormatTypes) {
-//        Log.v("ENABLEDD", enabledFormatTypes.getEnabledTypesOnly().toString());
-//      }
-//    });
+    mbtg_button_group.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+      if (checkedId == R.id.action_bold) {
+        mEditor.setBold(isChecked);
 
-    findViewById(R.id.action_undo).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.undo();
+      } else if (checkedId == R.id.action_italic) {
+        mEditor.setItalic(isChecked);
+
+      } else if (checkedId == R.id.action_underline) {
+        mEditor.setUnderline(isChecked);
+
+      } else if (checkedId == R.id.action_strikethrough) {
+        mEditor.setStrikeThrough(isChecked);
       }
     });
 
-    findViewById(R.id.action_redo).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.redo();
-      }
+
+    findViewById(R.id.action_undo).setOnClickListener(v -> {
+      mEditor.undo();
     });
 
-    findViewById(R.id.action_bold).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.toggleBold();
-      }
-    });
 
-    findViewById(R.id.action_italic).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.toggleItalic();
-      }
-    });
+    findViewById(R.id.action_redo).setOnClickListener(v -> mEditor.redo());
 
-    findViewById(R.id.action_subscript).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setSubscript();
-      }
-    });
+//    findViewById(R.id.action_bold).setOnClickListener(v -> mEditor.toggleBold());
+//
+//    findViewById(R.id.action_italic).setOnClickListener(v -> mEditor.toggleItalic());
 
-    findViewById(R.id.action_superscript).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setSuperscript();
-      }
-    });
+    findViewById(R.id.action_subscript).setOnClickListener(v -> mEditor.setSubscript());
 
-    findViewById(R.id.action_strikethrough).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setStrikeThrough(true);
-      }
-    });
+    findViewById(R.id.action_superscript).setOnClickListener(v -> mEditor.setSuperscript());
 
-    findViewById(R.id.action_underline).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setUnderline(true);
-      }
-    });
+//    findViewById(R.id.action_strikethrough).setOnClickListener(v -> mEditor.setStrikeThrough(true));
 
-    findViewById(R.id.action_heading1).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(1);
-      }
-    });
+//    findViewById(R.id.action_underline).setOnClickListener(v -> mEditor.setUnderline(true));
 
-    findViewById(R.id.action_heading2).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(2);
-      }
-    });
+    findViewById(R.id.action_heading1).setOnClickListener(v -> mEditor.setHeading(1));
 
-    findViewById(R.id.action_heading3).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(3);
-      }
-    });
+    findViewById(R.id.action_heading2).setOnClickListener(v -> mEditor.setHeading(2));
 
-    findViewById(R.id.action_heading4).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(4);
-      }
-    });
+    findViewById(R.id.action_heading3).setOnClickListener(v -> mEditor.setHeading(3));
 
-    findViewById(R.id.action_heading5).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(5);
-      }
-    });
+    findViewById(R.id.action_heading4).setOnClickListener(v -> mEditor.setHeading(4));
 
-    findViewById(R.id.action_heading6).setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        mEditor.setHeading(6);
-      }
-    });
+    findViewById(R.id.action_heading5).setOnClickListener(v -> mEditor.setHeading(5));
+
+    findViewById(R.id.action_heading6).setOnClickListener(v -> mEditor.setHeading(6));
 
     findViewById(R.id.action_txt_color).setOnClickListener(new View.OnClickListener() {
       private boolean isChanged;

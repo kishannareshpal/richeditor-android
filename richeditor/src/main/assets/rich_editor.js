@@ -23,9 +23,7 @@ RE.currentSelection = {
     "endOffset": 0
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    RE.editor = document.getElementById("editor");
-})
+RE.editor = document.getElementById("editor");
 
 
 document.addEventListener("selectionchange", function() {
